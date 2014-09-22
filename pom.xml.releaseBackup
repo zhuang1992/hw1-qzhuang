@@ -106,9 +106,9 @@
     </dependency>
   </dependencies>
   <scm>
-  	<url>scm:git:https//github.com/zhuang1992/hw1-qzhuang.git</url>
-  	<connection>scm:git:https//github.com/zhuang1992/hw1-qzhuang.git</connection>
-  	<developerConnection>scm:git:https//github.com/zhuang1992/hw1-qzhuang.git</developerConnection>
+  	<url>scm:git:git://github.com/zhuang1992/hw1-qzhuang.git</url>
+  	<connection>scm:git:git://github.com/zhuang1992/hw1-qzhuang.git</connection>
+  	<developerConnection>scm:git:git://github.com/zhuang1992/hw1-qzhuang.git</developerConnection>
     <tag>hw1-qzhuang-0.0.1</tag>
   </scm>
 </project>
