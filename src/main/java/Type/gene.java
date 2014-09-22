@@ -14,7 +14,6 @@ public class gene extends Annotation {
 
   public final static int type = typeIndexID;
 
-  @Override
   public int getTypeIndexID() {
     return typeIndexID;
   }
