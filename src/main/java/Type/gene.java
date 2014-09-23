@@ -1,7 +1,5 @@
 package Type;
 
-/* First created by JCasGen Fri Sep 19 07:46:08 EDT 2014 */
-
 import org.apache.uima.jcas.JCas;
 import org.apache.uima.jcas.JCasRegistry;
 import org.apache.uima.jcas.cas.TOP_Type;
@@ -18,7 +16,7 @@ public class gene extends Annotation {
     return typeIndexID;
   }
 
-  protected gene() {/* intentionally empty block */
+  protected gene() {
   }
 
   public gene(int addr, TOP_Type type) {
@@ -38,7 +36,7 @@ public class gene extends Annotation {
     readObject();
   }
 
-  private void readObject() {/* default - does nothing empty block */
+  private void readObject() {
   }
 
   public String getId() {

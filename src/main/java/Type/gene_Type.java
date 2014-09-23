@@ -19,7 +19,6 @@ public class gene_Type extends Annotation_Type {
     new FSGenerator() {
       public FeatureStructure createFS(int addr, CASImpl cas) {
          if (gene_Type.this.useExistingInstance) {
-           // Return eq fs instance if already created
            FeatureStructure fs = gene_Type.this.jcas.getJfsFromCaddr(addr);
            if (null == fs) {
              fs = new gene(addr, gene_Type.this);
