@@ -54,7 +54,7 @@ public class gene_Type extends Annotation_Type {
   
   final Feature casFeat_geneName;
   
-  final int     casFeatCode_geneName;
+  final int casFeatCode_geneName;
 
   public String getGeneName(int addr) {
         if (featOkTst && casFeat_geneName == null)
@@ -82,7 +82,3 @@ public class gene_Type extends Annotation_Type {
 
   }
 }
-
-
-
-    

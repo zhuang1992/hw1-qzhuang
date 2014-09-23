@@ -1,5 +1,4 @@
 package Type;
-
 import org.apache.uima.jcas.JCas;
 import org.apache.uima.jcas.JCasRegistry;
 import org.apache.uima.cas.impl.CASImpl;
@@ -12,7 +11,6 @@ import org.apache.uima.cas.Feature;
 import org.apache.uima.jcas.tcas.Annotation_Type;
 
 public class sentence_Type extends Annotation_Type {
- 
   @Override
   protected FSGenerator getFSGenerator() {return fsGenerator;}
 
@@ -32,15 +30,13 @@ public class sentence_Type extends Annotation_Type {
   	  }
     };
  
-  @SuppressWarnings ("hiding")
   public final static int typeIndexID = sentence.typeIndexID;
  
-  @SuppressWarnings ("hiding")
   public final static boolean featOkTst = JCasRegistry.getFeatOkTst("Type.sentence");
  
   final Feature casFeat_id;
 
-  final int     casFeatCode_id;
+  final int casFeatCode_id;
   
   public String getId(int addr) {
         if (featOkTst && casFeat_id == null)
@@ -69,24 +65,15 @@ public class sentence_Type extends Annotation_Type {
       jcas.throwFeatMissing("text", "Type.sentence");
     ll_cas.ll_setStringValue(addr, casFeatCode_text, v);}
     
-  
-
-
   public sentence_Type(JCas jcas, Type casType) {
     super(jcas, casType);
     casImpl.getFSClassRegistry().addGeneratorForType((TypeImpl)this.casType, getFSGenerator());
-
  
     casFeat_id = jcas.getRequiredFeatureDE(casType, "id", "uima.cas.String", featOkTst);
     casFeatCode_id  = (null == casFeat_id) ? JCas.INVALID_FEATURE_CODE : ((FeatureImpl)casFeat_id).getCode();
-
  
     casFeat_text = jcas.getRequiredFeatureDE(casType, "text", "uima.cas.String", featOkTst);
     casFeatCode_text  = (null == casFeat_text) ? JCas.INVALID_FEATURE_CODE : ((FeatureImpl)casFeat_text).getCode();
 
   }
 }
-
-
-
-    

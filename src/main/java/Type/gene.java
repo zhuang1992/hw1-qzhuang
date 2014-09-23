@@ -1,7 +1,4 @@
 package Type;
-
-
-
 import org.apache.uima.jcas.JCas; 
 import org.apache.uima.jcas.JCasRegistry;
 import org.apache.uima.jcas.cas.TOP_Type;
@@ -16,7 +13,7 @@ public class gene extends Annotation {
   public final static int type = typeIndexID;
 
   @Override
-  public              int getTypeIndexID() {return typeIndexID;}
+  public int getTypeIndexID() {return typeIndexID;}
  
   protected gene() {}
     
@@ -62,5 +59,3 @@ public class gene extends Annotation {
       jcasType.jcas.throwFeatMissing("geneName", "Type.gene");
     jcasType.ll_cas.ll_setStringValue(addr, ((gene_Type)jcasType).casFeatCode_geneName, v);}    
   }
-
-    
