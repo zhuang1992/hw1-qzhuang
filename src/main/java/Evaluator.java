@@ -1,5 +1,3 @@
-
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.BufferedReader;
@@ -30,8 +28,7 @@ public class Evaluator {
         if(!standard.containsKey(items[items.length-1].trim())){
           standard.put(items[items.length-1].trim(), true);
           sampleNum++;
-        }
-          
+        }          
       }
       sampleFileReader.close();
     } catch (FileNotFoundException e) {
