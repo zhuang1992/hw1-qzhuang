@@ -29,15 +29,11 @@ public class geneCasConsumer extends CasConsumer_ImplBase implements CasObjectPr
    */
   public void initialize() throws ResourceInitializationException {
 
-    // extract configuration parameter settings
     String oPath = (String) getUimaContext().getConfigParameterValue("outputFile");
-    //System.out.println(oPath);
-    // Output file should be specified in the descriptor
     if (oPath == null) {
       throw new ResourceInitializationException(
               ResourceInitializationException.CONFIG_SETTING_ABSENT, new Object[] { "outputFile" });
     }
-    // If specified output directory does not exist, try to create it
     outFile = new File(oPath.trim());
     
     
@@ -79,7 +75,6 @@ public class geneCasConsumer extends CasConsumer_ImplBase implements CasObjectPr
       try {
         fileWriter.close();
       } catch (IOException e) {
-        // ignore IOException on destroy
       }
     }
   }

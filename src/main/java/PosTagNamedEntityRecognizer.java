@@ -15,6 +15,7 @@ import edu.stanford.nlp.pipeline.*;
 import edu.stanford.nlp.util.*;
 
 public class PosTagNamedEntityRecognizer {
+  private static final int threshold = 5;  // If the length of the noun is smaller than threshold, skip it. 
 
   private StanfordCoreNLP pipeline;
   private Map<Integer, Integer> space;
@@ -47,6 +48,10 @@ public class PosTagNamedEntityRecognizer {
         } else if (candidate.size() > 0) {
           int begin = candidate.get(0).beginPosition();
           int end = candidate.get(candidate.size() - 1).endPosition();
+          if(end - begin < threshold){
+            candidate.clear();
+            continue;
+          }
           begin2end.put(begin, end);
           space.put(begin,numOfSpace);
           candidate.clear();
@@ -60,6 +65,10 @@ public class PosTagNamedEntityRecognizer {
       if (candidate.size() > 0) {
         int begin = candidate.get(0).beginPosition();
         int end = candidate.get(candidate.size() - 1).endPosition();
+        if(end - begin < threshold){
+          candidate.clear();
+          continue;
+        }
         begin2end.put(begin, end);
         space.put(begin,numOfSpace);
         candidate.clear();

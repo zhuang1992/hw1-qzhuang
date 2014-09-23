@@ -76,4 +76,6 @@ public class Evaluator {
     System.out.println("Recall = " + eva.getRecall());
     System.out.println("F1_Score = " + eva.getF1Score());
   }
+  
+  private static final int threshold = 4;  // If the length of the noun is smaller than threshold, skip it. 
 }

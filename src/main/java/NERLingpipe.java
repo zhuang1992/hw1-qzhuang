@@ -20,6 +20,7 @@ public class NERLingpipe {
     try {
       modelFile = new File(ChunkerFile);
       chunker = (Chunker) AbstractExternalizable.readObject(modelFile);
+      space = new HashMap<Integer, Integer>();
     } catch (IOException e) {
       // TODO Auto-generated catch block
       e.printStackTrace();
@@ -33,16 +34,24 @@ public class NERLingpipe {
       instance = new NERLingpipe();
     return instance;
   }
+  int getSpaceNum(int begin){
+    return space.get(begin);
+  }
   Map<Integer, Integer> getGeneSpans(String text) throws IOException, ClassNotFoundException{
     Map<Integer, Integer> begin2end = new HashMap<Integer, Integer>();
 
     Chunking chunking = chunker.chunk(text);
     Iterator<Chunk>iter = chunking.chunkSet().iterator();
-    int numOfSpace = 0;
-    int spaceInside = 0;
+    
     while(iter.hasNext()){
+      int numOfSpace = 0;
       Chunk c = (Chunk)iter.next();
       begin2end.put(c.start(), c.end());
+      for(int i = 0; i < c.start(); i++){
+        if(text.charAt(i)==' ')
+          numOfSpace++;
+      }
+      space.put(c.start(), numOfSpace);
     }
     return begin2end;
   }
@@ -53,7 +62,7 @@ public class NERLingpipe {
     Iterator<Entry<Integer, Integer>>  iter = r.entrySet().iterator();
     while(iter.hasNext()){
       Entry<Integer, Integer> entry = (Entry<Integer, Integer>)(iter.next());
-      System.out.println(text.substring(entry.getKey(),entry.getValue()));
+      System.out.println(test.getSpaceNum(entry.getKey())+":"+text.substring(entry.getKey(),entry.getValue()));
     }
   }
 

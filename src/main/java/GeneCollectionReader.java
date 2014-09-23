@@ -34,18 +34,6 @@ public class GeneCollectionReader extends CollectionReader_ImplBase{
    */
   public static final String PARAM_INPUTDIR = "InputDirectory";
   
-  /**
-   * Name of configuration parameter that contains the character encoding used by the input files.
-   * If not specified, the default system encoding will be used.
-   */
-  public static final String PARAM_ENCODING = "Encoding";
-
-  /**
-   * Name of optional configuration parameter that contains the language of the documents in the
-   * input directory. If specified this information will be added to the CAS.
-   */
-  public static final String PARAM_LANGUAGE = "Language";
-  
   private File file;
   private BufferedReader fileReader;
 
@@ -86,18 +74,11 @@ public class GeneCollectionReader extends CollectionReader_ImplBase{
       throw new CollectionException(e);
     }
     String text = contents.elementAt(curLine++);  
-    // put document in CAS
-    //jcas.setDocumentText(text);
     sentence s = new sentence(jcas);
     String[] items = text.split(" ");
     s.setId(items[0].trim());
     s.setText(text.substring(items[0].length()+1, text.length()));
     s.addToIndexes();
-
-    // set language if it was explicitly specified as a configuration parameter
-    if (mLanguage != null) {
-      jcas.setDocumentLanguage(mLanguage);
-    }    
   }
   
   @Override
