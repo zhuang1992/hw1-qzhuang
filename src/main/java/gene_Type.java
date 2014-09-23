@@ -1,4 +1,4 @@
-package Type;
+
 
 import org.apache.uima.jcas.JCas;
 import org.apache.uima.jcas.JCasRegistry;
