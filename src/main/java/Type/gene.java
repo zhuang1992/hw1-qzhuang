@@ -39,27 +39,4 @@ public class gene extends Annotation {
   private void readObject() {
   }
 
-  public String getId() {
-    if (gene_Type.featOkTst && ((gene_Type) jcasType).casFeat_id == null)
-      jcasType.jcas.throwFeatMissing("id", "Type.gene");
-    return jcasType.ll_cas.ll_getStringValue(addr, ((gene_Type) jcasType).casFeatCode_id);
-  }
-
-  public void setId(String v) {
-    if (gene_Type.featOkTst && ((gene_Type) jcasType).casFeat_id == null)
-      jcasType.jcas.throwFeatMissing("id", "Type.gene");
-    jcasType.ll_cas.ll_setStringValue(addr, ((gene_Type) jcasType).casFeatCode_id, v);
-  }
-
-  public String getGeneName() {
-    if (gene_Type.featOkTst && ((gene_Type) jcasType).casFeat_geneName == null)
-      jcasType.jcas.throwFeatMissing("geneName", "Type.gene");
-    return jcasType.ll_cas.ll_getStringValue(addr, ((gene_Type) jcasType).casFeatCode_geneName);
-  }
-
-  public void setGeneName(String v) {
-    if (gene_Type.featOkTst && ((gene_Type) jcasType).casFeat_geneName == null)
-      jcasType.jcas.throwFeatMissing("geneName", "Type.gene");
-    jcasType.ll_cas.ll_setStringValue(addr, ((gene_Type) jcasType).casFeatCode_geneName, v);
-  }
 }
