@@ -126,6 +126,6 @@
 		<url>scm:git:git@github.com:zhuang1992/hw1-qzhuang.git</url>
 		<connection>scm:git:git@github.com:zhuang1992/hw1-qzhuang.git</connection>
 		<developerConnection>scm:git:git@github.com:zhuang1992/hw1-qzhuang.git</developerConnection>
-		<tag>hw1-qzhuang-0.0.1</tag>
+		<tag>hw1-qzhuang-0.0.7</tag>
 	</scm>
 </project>
