@@ -57,6 +57,8 @@ public class SimpleRunCPE extends Thread {
    * 
    * @param args
    *          command line arguments into the program - see class description
+   * @throws Exceptions
+   *        
    */
   public SimpleRunCPE(String args[]) throws Exception {
     mStartTime = System.currentTimeMillis();

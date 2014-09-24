@@ -17,20 +17,21 @@ import org.apache.uima.util.Progress;
 import org.apache.uima.util.ProgressImpl;
 
 /**
- * A simple collection reader that reads documents from a directory in the filesystem. It can be
+ * A simple collection reader that reads documents from the specified file. It can be
  * configured with the following parameters:
  * <ul>
  * <li><code>InputDirectory</code> - path to directory containing files</li>
- * <li><code>Encoding</code> (optional) - character encoding of the input files</li>
- * <li><code>Language</code> (optional) - language of the input documents</li>
  * </ul>
+ * It stores the information in sentence type and add it to annotation index.
+ * 
+ * @author Qiankun Zhuang
  * 
  * 
  */
 public class GeneCollectionReader extends CollectionReader_ImplBase{
   /**
-   * Name of configuration parameter that must be set to the path of a directory containing input
-   * files.
+   * Name of configuration parameter that must be set to the path of the input file
+   * 
    */
   public static final String PARAM_INPUTDIR = "InputDirectory";
   
@@ -41,6 +42,11 @@ public class GeneCollectionReader extends CollectionReader_ImplBase{
   private Vector<String>contents;
   private int numLine = 0;
   private int curLine = 0;
+  /**
+   * This initialize() function is called once at the start of the CPE.
+   * It reads the input file by line and stores it for future use
+   * 
+   */
   public void initialize() throws ResourceInitializationException{
     System.out.println(((String) getConfigParameterValue(PARAM_INPUTDIR)).trim());
     file = new File(((String) getConfigParameterValue(PARAM_INPUTDIR)).trim());  
@@ -65,6 +71,10 @@ public class GeneCollectionReader extends CollectionReader_ImplBase{
     }    
     //System.out.println(numLine);
   }
+  /**
+   * Get the next sentence to process and store it in CAS.
+   * 
+   */
   @Override
   public void getNext(CAS aCAS) throws IOException, CollectionException {
     JCas jcas;
@@ -80,20 +90,21 @@ public class GeneCollectionReader extends CollectionReader_ImplBase{
     s.setText(text.substring(items[0].length()+1, text.length()));
     s.addToIndexes();
   }
-  
+  /**
+   * Inform the CPE if there are more sentence we need to process. 
+   */
   @Override
   public boolean hasNext() throws IOException, CollectionException {
     return curLine < numLine;
   }
-
+  
   @Override
   public Progress[] getProgress() {
     return new Progress[] { new ProgressImpl(curLine, numLine, Progress.ENTITIES) };
   }
-
+  
   @Override
   public void close() throws IOException {
-    // TODO Auto-generated method stub
     
   }
 }

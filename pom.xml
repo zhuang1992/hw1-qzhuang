@@ -33,6 +33,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.7</version>
 				<configuration>
 					<failOnError>false</failOnError>
 				</configuration>
@@ -49,7 +50,7 @@
 							<goal>perform</goal>
 						</goals>
 						<configuration>
-							<pomFileName>hw0-zhuang1992/pom.xml</pomFileName>
+							<pomFileName>hw1-zhuang1992/pom.xml</pomFileName>
 						</configuration>
 					</execution>
 				</executions>

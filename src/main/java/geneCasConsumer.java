@@ -13,7 +13,13 @@ import org.apache.uima.jcas.JCas;
 import org.apache.uima.resource.ResourceInitializationException;
 import org.apache.uima.resource.ResourceProcessException;
 
-
+/**
+ * The consumer class extracts information from CAS and prints information 
+ * to files in required format.
+ * 
+ * @author Qiankun Zhuang
+ * 
+ */
 public class geneCasConsumer extends CasConsumer_ImplBase implements CasObjectProcessor{
   File outFile;
 
@@ -36,7 +42,6 @@ public class geneCasConsumer extends CasConsumer_ImplBase implements CasObjectPr
     }
     outFile = new File(oPath.trim());
     
-    
     try {
       if(outFile.exists()){
         outFile.delete();
@@ -48,6 +53,12 @@ public class geneCasConsumer extends CasConsumer_ImplBase implements CasObjectPr
       throw new ResourceInitializationException(e);
     }
   }
+  /**
+   * Extract information from gene type and output these information to a file in required format.
+   * @param CAS
+   *        Common analysis structure containing gene type.
+   * 
+   */
   @Override
   public void processCas(CAS aCAS) throws ResourceProcessException {
     JCas jcas;
@@ -69,6 +80,9 @@ public class geneCasConsumer extends CasConsumer_ImplBase implements CasObjectPr
       }
     }    
   }
+  /**
+   * Close the output file after consumer finished all the printing. 
+   */ 
   @Override
   public void destroy() {
     if (fileWriter != null) {

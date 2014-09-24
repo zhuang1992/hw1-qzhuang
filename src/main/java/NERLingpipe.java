@@ -22,10 +22,8 @@ public class NERLingpipe {
       chunker = (Chunker) AbstractExternalizable.readObject(modelFile);
       space = new HashMap<Integer, Integer>();
     } catch (IOException e) {
-      // TODO Auto-generated catch block
       e.printStackTrace();
     } catch (ClassNotFoundException e) {
-      // TODO Auto-generated catch block
       e.printStackTrace();
     }
   }
@@ -55,6 +53,11 @@ public class NERLingpipe {
     }
     return begin2end;
   }
+  /**
+   *  The main method is used to test Lingpipe NER
+   *  @param args 
+   * 
+   */
   public static void main(String[] args) throws Exception {
     NERLingpipe test = new NERLingpipe();
     String text = "p53 regulates human insulin-like growth factor II gene expression through active P4 promoter in rhabdomyosarcoma cells.";
@@ -65,5 +68,4 @@ public class NERLingpipe {
       System.out.println(test.getSpaceNum(entry.getKey())+":"+text.substring(entry.getKey(),entry.getValue()));
     }
   }
-
 }

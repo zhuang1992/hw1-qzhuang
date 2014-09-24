@@ -4,7 +4,14 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
-
+/**
+ * The class Evaluator reads the gene names from sample.out and hw1-qzhuang.out,
+ * and calculates the Precision, Recall and F1 score so that we can evaluate and compare 
+ * the performance different annotators.* 
+ * 
+ * @author Qiankun Zhuang
+ * 
+ */
 public class Evaluator {
   String sampleOutput = "src/main/resources/data/sample.out";
   String myOutput = "src/main/resources/data/hw1-qzhuang.out";
@@ -13,6 +20,10 @@ public class Evaluator {
   int sampleNum;
   HashMap<String, Boolean> standard;
   HashMap<String, Boolean> my;
+  /*
+   * Constructor of Evaluator.
+   * Do all the initialization and file reading.
+   * */
   public Evaluator(){
     hitting = 0;
     myGeneNum = 0;
@@ -76,6 +87,4 @@ public class Evaluator {
     System.out.println("Recall = " + eva.getRecall());
     System.out.println("F1_Score = " + eva.getF1Score());
   }
-  
-  private static final int threshold = 4;  // If the length of the noun is smaller than threshold, skip it. 
 }

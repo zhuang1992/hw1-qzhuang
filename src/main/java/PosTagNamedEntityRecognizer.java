@@ -117,7 +117,6 @@ public class PosTagNamedEntityRecognizer {
           spaceInside++;
       }
       System.out.println((st-space)+" "+(en-space-spaceInside-1)+":"+t.substring(st, en));
-    }
-    
+    } 
   }
 }
