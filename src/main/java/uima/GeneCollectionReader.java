@@ -1,3 +1,4 @@
+package uima;
 import Type.sentence;
 
 import java.io.BufferedReader;

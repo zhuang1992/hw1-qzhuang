@@ -1,3 +1,4 @@
+package Tools;
 import com.aliasi.chunk.Chunk;
 import com.aliasi.chunk.Chunker;
 import com.aliasi.chunk.Chunking;
@@ -45,15 +46,15 @@ public class NERLingpipe {
       instance = new NERLingpipe();
     return instance;
   }
-  /**
+   /**
    *  Get the number of spaces before the position in the sentence
    *  specified by the parameter 
    *  @param begin
    */
-  int getSpaceNum(int begin){
+  public int getSpaceNum(int begin){
     return space.get(begin);
   }
-  /**
+   /**
    *  Extract gene names from the input string
    *  @param text
    *      The input string to be analyzed
@@ -61,7 +62,7 @@ public class NERLingpipe {
    *      Records the start and end position of each gene names in the sentence
    * 
    */
-  Map<Integer, Integer> getGeneSpans(String text) throws IOException, ClassNotFoundException{
+  public Map<Integer, Integer> getGeneSpans(String text) throws IOException, ClassNotFoundException{
     Map<Integer, Integer> begin2end = new HashMap<Integer, Integer>();
     Chunking chunking = chunker.chunk(text);
     Iterator<Chunk>iter = chunking.chunkSet().iterator();
