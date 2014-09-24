@@ -58,7 +58,7 @@ public class NERLingpipe {
    *  Extract gene names from the input string
    *  @param text
    *      The input string to be analyzed
-   *  @return Map<Integer,Integer>
+   *  @return Map
    *      Records the start and end position of each gene names in the sentence
    * 
    */
