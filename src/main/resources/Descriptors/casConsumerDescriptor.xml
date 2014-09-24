@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <casConsumerDescription xmlns="http://uima.apache.org/resourceSpecifier">
   <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
-  <implementationName>geneCasConsumer</implementationName>
+  <implementationName>uima.geneCasConsumer</implementationName>
   <processingResourceMetaData>
     <name>casConsumerDescriptor</name>
     <description/>
@@ -20,7 +19,7 @@
       <nameValuePair>
         <name>outputFile</name>
         <value>
-          <string>./src/main/resources/data/hw1-qzhuang.out</string>
+          <string>./hw1-qzhuang.out</string>
         </value>
       </nameValuePair>
     </configurationParameterSettings>

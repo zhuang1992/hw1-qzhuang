@@ -15,7 +15,7 @@ import java.util.*;
  */
 public class Evaluator {
   String sampleOutput = "src/main/resources/data/sample.out";
-  String myOutput = "src/main/resources/data/hw1-qzhuang.out";
+  String myOutput = "hw1-qzhuang.out";
   int hitting;
   int myGeneNum;
   int sampleNum;
