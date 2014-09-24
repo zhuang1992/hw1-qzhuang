@@ -15,14 +15,14 @@ import org.apache.uima.jcas.tcas.Annotation_Type;
 
 /** 
  * Updated by JCasGen Fri Sep 19 09:49:33 EDT 2014
- * @generated */
+ *  */
 public class sentence_Type extends Annotation_Type {
-  /** @generated 
+  /**  
    * @return the generator for this type
    */
   @Override
   protected FSGenerator getFSGenerator() {return fsGenerator;}
-  /** @generated */
+  /**  */
   private final FSGenerator fsGenerator = 
     new FSGenerator() {
       public FeatureStructure createFS(int addr, CASImpl cas) {
@@ -38,19 +38,19 @@ public class sentence_Type extends Annotation_Type {
         } else return new sentence(addr, sentence_Type.this);
   	  }
     };
-  /** @generated */
+  /**  */
   @SuppressWarnings ("hiding")
   public final static int typeIndexID = sentence.typeIndexID;
-  /** @generated 
-     @modifiable */
+  /**  
+      */
   @SuppressWarnings ("hiding")
   public final static boolean featOkTst = JCasRegistry.getFeatOkTst("Type.sentence");
  
-  /** @generated */
+  /**  */
   final Feature casFeat_id;
-  /** @generated */
+  /**  */
   final int     casFeatCode_id;
-  /** @generated
+  /** 
    * @param addr low level Feature Structure reference
    * @return the feature value 
    */ 
@@ -59,7 +59,7 @@ public class sentence_Type extends Annotation_Type {
       jcas.throwFeatMissing("id", "Type.sentence");
     return ll_cas.ll_getStringValue(addr, casFeatCode_id);
   }
-  /** @generated
+  /** 
    * @param addr low level Feature Structure reference
    * @param v value to set 
    */    
@@ -70,11 +70,11 @@ public class sentence_Type extends Annotation_Type {
     
   
  
-  /** @generated */
+  /**  */
   final Feature casFeat_text;
-  /** @generated */
+  /**  */
   final int     casFeatCode_text;
-  /** @generated
+  /** 
    * @param addr low level Feature Structure reference
    * @return the feature value 
    */ 
@@ -83,7 +83,7 @@ public class sentence_Type extends Annotation_Type {
       jcas.throwFeatMissing("text", "Type.sentence");
     return ll_cas.ll_getStringValue(addr, casFeatCode_text);
   }
-  /** @generated
+  /** 
    * @param addr low level Feature Structure reference
    * @param v value to set 
    */    
@@ -97,7 +97,7 @@ public class sentence_Type extends Annotation_Type {
 
 
   /** initialize variables to correspond with Cas Type and Features
-	 * @generated
+	 * 
 	 * @param jcas JCas
 	 * @param casType Type 
 	 */

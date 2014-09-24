@@ -31,15 +31,13 @@ public class geneNameAnnotatorLingpipe extends JCasAnnotator_ImplBase{
   /**
    * Extract all the sentences in the JCas and process them with Lingpipe NER.
    * Store the processed gene information into gene type and add them to annotation index.
-   * @param aJcas
+   * @param aJCas
    *    CAS containing annotations of sentence type. Gene type will also be stored in here.
    */
   @Override
   public void process(JCas aJCas) throws AnalysisEngineProcessException {
     NERLingpipe recognizer = null;
-   
     recognizer = NERLingpipe.getInstance();
-    
     Iterator sIter = aJCas.getAnnotationIndex(sentence.type).iterator();// Need to specify the annotation type you want to use
     while (sIter.hasNext()) {
       sentence s = (sentence) sIter.next();    

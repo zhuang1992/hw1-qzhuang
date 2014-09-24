@@ -13,23 +13,44 @@ import edu.stanford.nlp.ling.*;
 import edu.stanford.nlp.ling.CoreAnnotations.*;
 import edu.stanford.nlp.pipeline.*;
 import edu.stanford.nlp.util.*;
-
+/**
+ *  Named Entity Recognizer from Stanford NLP, based on POS and some simple rules.
+ *  @author Qiankun Zhuang
+ */
 public class PosTagNamedEntityRecognizer {
-  private static final int threshold = 5;  // If the length of the noun is smaller than threshold, skip it. 
+  /**
+   *  The minimal length of noun phrases
+   *  If the length of the noun is smaller than threshold, it won't be extracted
+   */
+  private static final int threshold = 5;   
 
   private StanfordCoreNLP pipeline;
   private Map<Integer, Integer> space;
+  /**
+   *  Constructor of PosTagNamedEntityRecognizer
+   */
   private PosTagNamedEntityRecognizer() throws ResourceInitializationException {
     Properties props = new Properties();
     props.put("annotators", "tokenize, ssplit, pos");
     pipeline = new StanfordCoreNLP(props);
   }
+  /**
+   *  Singleton pattern 
+   */
   private static PosTagNamedEntityRecognizer instance = null;
   public static PosTagNamedEntityRecognizer getInstance() throws ResourceInitializationException{
     if(instance==null)
       instance = new PosTagNamedEntityRecognizer();
     return instance;
   }
+  /**
+   *  Extract gene names from the input string
+   *  @param text
+   *      The input string to be analyzed
+   *  @return Map
+   *      Records the start and end position of each gene names in the sentence
+   * 
+   */
   public Map<Integer, Integer> getGeneSpans(String text) {
     Map<Integer, Integer> begin2end = new HashMap<Integer, Integer>();
     space = new HashMap<Integer, Integer>();

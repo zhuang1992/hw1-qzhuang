@@ -98,6 +98,7 @@ public class GeneCollectionReader extends CollectionReader_ImplBase{
     return curLine < numLine;
   }
   
+  
   @Override
   public Progress[] getProgress() {
     return new Progress[] { new ProgressImpl(curLine, numLine, Progress.ENTITIES) };

@@ -55,7 +55,7 @@ public class geneCasConsumer extends CasConsumer_ImplBase implements CasObjectPr
   }
   /**
    * Extract information from gene type and output these information to a file in required format.
-   * @param CAS
+   * @param aCAS
    *        Common analysis structure containing gene type.
    * 
    */
