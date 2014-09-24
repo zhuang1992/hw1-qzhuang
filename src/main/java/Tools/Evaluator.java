@@ -21,7 +21,7 @@ public class Evaluator {
   int sampleNum;
   HashMap<String, Boolean> standard;
   HashMap<String, Boolean> my;
-  /*
+  /**
    * Constructor of Evaluator.
    * Do all the initialization and file reading.
    * */
